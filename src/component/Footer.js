@@ -27,7 +27,7 @@ export class Footer extends Component {
                                 <li><Nav.Link className="servicesFooter" href="/Electric">Electric Car</Nav.Link></li>
                                 <li><Nav.Link className="servicesFooter" href="/Hybrid">Hybrid Car</Nav.Link></li>
                                 <li><Nav.Link className="servicesFooter" href="/Rent">Car Rent</Nav.Link></li>
-                                <li><Nav.Link className="servicesFooter" href="/AboutUs">About Us</Nav.Link></li>
+                                <li><Nav.Link className="servicesFooter" href="/aboutus">About Us</Nav.Link></li>
                             </ui>
                         </div>
                         {/* Column3 */}

@@ -23,7 +23,7 @@ export class Header extends Component {
                                 <NavDropdown.Item href="/Hybrid">Hybrid Car</NavDropdown.Item>
                             </NavDropdown>
                             <Nav.Link href="/Rent">Car Rent</Nav.Link>
-                            <Nav.Link href="/AboutUs">About Us</Nav.Link>
+                            <Nav.Link href="/aboutus">About Us</Nav.Link>
                         </Nav>
                         <Nav>
                             <Nav.Link href="#">Log In</Nav.Link>

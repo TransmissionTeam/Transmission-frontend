@@ -25,7 +25,7 @@ function App() {
 
           </Route >
 
-          <Route exact path="/AboutUs">
+          <Route exact path="/aboutus">
 
                 <AboutUs/>
 
