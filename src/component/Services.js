@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 
 import "./css/Services.css";
-
 import img1 from './img/1.png';
 import img2 from './img/2.png';
 import img3 from './img/3.png';
@@ -37,6 +36,7 @@ export class Services extends Component {
                             <p>There will be prices according to your ability and budget.</p>
             
                         </div>
+ 
 
                     </div>
                 </section>
