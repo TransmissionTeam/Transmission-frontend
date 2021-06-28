@@ -23,11 +23,14 @@ function App() {
 
           <Home />
 
+          </Route >
+
+          <Route exact path="/AboutUs">
+
+                <AboutUs/>
 
           </Route >
-          <Route exact path="/AboutUs">
-                <AboutUs/>
-          </Route >
+          
         </Switch>
 
         <Footer />
