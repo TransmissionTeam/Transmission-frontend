@@ -1,0 +1,25 @@
+.main-footer {
+    color: white;
+    background-color: #212529;
+    padding-top: 3em;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+  .main-footer h5{
+        text-align: justify;
+        
+  }
+  .copyRight{
+      text-align: center;
+  }
+  .list-unstyled li {
+    padding-top: 2px;
+  }
+  .icon{
+      font-size: 20px;
+  }
+
+  .servicesFooter{
+      color: whitesmoke;
+  }
