@@ -1,4 +1,8 @@
+import React, { Component } from 'react'
+
 import './App.css';
+
+import { withAuth0 } from "@auth0/auth0-react";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -12,31 +16,45 @@ import {
   Route
 } from "react-router-dom";
 
-function App() {
-  return (
-    <>
-      <Router>
-        <Header />
+export class App extends Component {
+  render() {
 
-        <Switch>
-          <Route exact path="/">
+    const { isAuthenticated } = this.props.auth0;
 
-          <Home />
+    return (
+      <>
+        <Router>
+          <Header />
 
-          </Route >
+          <Switch>
 
-          <Route exact path="/aboutus">
+            <Route exact path="/">
 
-                <AboutUs/>
+              <Home />
 
-          </Route >
-          
-        </Switch>
+            </Route >
 
-        <Footer />
-      </Router>
-    </>
-  );
+            <Route exact path="/">
+
+              isAuthenticated && (
+
+              )
+
+            </Route >
+
+            <Route exact path="/aboutus">
+
+              <AboutUs />
+
+            </Route >
+
+          </Switch>
+
+          <Footer />
+        </Router>
+      </>
+    )
+  }
 }
 
-export default App;
+export default withAuth0(App);
