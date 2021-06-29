@@ -12,6 +12,7 @@ import Footer from './component/Footer';
 import Home from './component/Home';
 import AboutUs from './component/AboutUs';
 import Electric from './component/Electric';
+import Rent from './component/Rent';
 
 import {
   BrowserRouter as Router,
@@ -120,57 +121,27 @@ export class App extends Component {
                 userName={this.state.userName}
 
               />
-              {/* <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br> */}
+    
 
             </Route >
 
             <Route exact path="/aboutus">
 
               <AboutUs />
+
+            </Route >
+
+
+            <Route exact path="/Rent">
+            isAuthenticated && (
+
+              <Rent
+                 userEmail={this.state.userEmail}
+                 userName={this.state.userName}
+                 userPicture={this.state.userPicture}
+           
+              />
+)
 
             </Route >
 

@@ -13,27 +13,26 @@ export class User extends Component {
             userName: this.props.auth0.user.name,
             userEmail: this.props.auth0.user.email,
             userPicture: this.props.auth0.user.picture,
-
-            userEmailDefined:false,
+            userEmailDefined: false,
         }
     }
 
-    
+
 
     render() {
 
         if (!this.state.userEmailDefined) {
 
-            this.props.userEmailInfo(this.state.userEmail , this.state.userName ,  this.state.userPicture  );
+            this.props.userEmailInfo(this.state.userEmail, this.state.userName, this.state.userPicture);
 
 
             this.setState({
 
-                userEmailDefined:!this.state.userEmailDefined,
+                userEmailDefined: !this.state.userEmailDefined,
 
             })
         }
-        
+
 
         return (
             <>
