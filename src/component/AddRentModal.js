@@ -5,6 +5,9 @@ import { withAuth0 } from "@auth0/auth0-react";
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal'
 
+import Form from 'react-bootstrap/Form'
+
+
 export class AddRentModal extends Component {
 
     render() {
@@ -37,47 +40,44 @@ export class AddRentModal extends Component {
 
                             <Modal.Body>
 
-                                <Button variant="success" type="submit" onClick={(e) => this.props.AddRent(e)}>
+                                {/* <Button variant="success" type="submit" onClick={(e) => this.props.AddRent(e)}>
                                     Add
-                                </Button>
+                                </Button> */}
 
-                                {/* 
-                        <Form onSubmit={(e) => this.props.createMyBook(e)}>
-                            <Form.Group className="mb-3" controlId="formBasicEmail" >
-                                <Form.Label>Enter book name</Form.Label>
-                                <Form.Control type="text" required placeholder="Enter book" onChange={(e) => this.props.updateBookName(e.target.value)} />
-                            </Form.Group>
+                               
 
-                            <Form.Group className="mb-3" controlId="formBasicEmail">
-                                <Form.Label>Write a discription book</Form.Label>
-                                <Form.Control
-                                    as="textarea" required
-                                    placeholder="Write a discription here"
-                                    style={{ height: '100px' }}
-                                    onChange={(e) => this.props.updateBookdescribtion(e.target.value)}
-                                />
-                            </Form.Group>
 
-                            <Form.Group className="mb-3" controlId="formBasicEmail">
-                                <Form.Label>Enter the status of the book</Form.Label>
-                                <Form.Control as="select" aria-label="Default select example" required onChange={(e) => this.props.updateBookstatus(e.target.value)}>
-                                    <option selected>Open this select menu</option>
-                                    <option value="Available" >Available</option>
-                                    <option value="Not-Availabe">Not Availabe</option>
-                                </Form.Control>
-                            </Form.Group>
 
-                            <Form.Group className="mb-3" controlId="formBasicEmail">
-                                <Form.Label>Enter book URL image</Form.Label>
-                                <Form.Control type="text" placeholder="Enter book image URL" onChange={(e) => this.props.updateBookurl(e.target.value)} required />
-                            </Form.Group>
+                                <Form onSubmit={(e) => this.props.AddRent(e)}>
 
-                            <Button variant="success" type="submit">
-                                Add
-                            </Button>
-                        </Form>
+                                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                                        <Form.Label>Write a Discription</Form.Label>
+                                        <Form.Control
+                                            as="textarea" required
+                                            placeholder="Write a discription here"
+                                            style={{ height: '100px' }}
+                                            onChange={(e) => this.props.discriptionInfo(e.target.value)}
+                                        />
+                                    </Form.Group>
 
-                         */}
+                                    <Form.Group className="mb-3" controlId="formBasicEmail" >
+                                        <Form.Label>Date 1</Form.Label>
+                                        <input type="date" id="birthday" name="birthday" onChange={(e) => this.props.dateOneInfo(e.target.value)} ></input>
+                                        {/* <Form.Control type="text" required placeholder="Enter book" onChange={(e) => this.props.updateBookName(e.target.value)} /> */}
+                                    </Form.Group>
+
+                                    <Form.Group className="mb-3" controlId="formBasicEmail" >
+                                        <Form.Label>Date 2</Form.Label>
+                                        <input type="date" id="birthday" name="birthday" onChange={(e) => this.props.dateTowInfo(e.target.value)} ></input>
+                                        {/* <Form.Control type="text" required placeholder="Enter book" onChange={(e) => this.props.updateBookName(e.target.value)} /> */}
+                                    </Form.Group>
+
+                                    <Button variant="success" type="submit">
+                                        Add
+                                    </Button>
+                                </Form>
+
+
                             </Modal.Body>
 
                         )

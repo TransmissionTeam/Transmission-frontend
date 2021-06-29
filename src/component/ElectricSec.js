@@ -28,9 +28,29 @@ export class ElectricSec extends Component {
             colorAdd: '',
             img_urlAdd: '',
 
+            discriptionAdd:'',
+            dateOneAdd:'',
+            dateTowAdd:'',
 
         }
     }
+
+    discriptionInfo = (discriptionAdd) => {
+        this.setState({ discriptionAdd });
+        // console.log('discriptionAdd:',this.state.discriptionAdd);
+    }
+
+    dateOneInfo = (dateOneAdd) => {
+        // console.log(dateOneAdd);
+        this.setState({ dateOneAdd });
+        // console.log('dateOneAdd:',this.state.dateOneAdd);
+    }
+
+    dateTowInfo = (dateTowAdd) => {
+        this.setState({ dateTowAdd });
+        // console.log('dateTowAdd:',this.state.dateTowAdd);
+    }
+
 
     handleModalClose = () => {
         this.setState({
@@ -69,8 +89,9 @@ export class ElectricSec extends Component {
             company: this.state.companyAdd,
             color: this.state.colorAdd,
             img_url: this.state.img_urlAdd,
-            des:'desTest'
-
+            discription:this.state.discriptionAdd,
+            rentalDate:this.state.dateOneAdd,
+            returnDate:this.state.dateTowAdd,
 
         }
         console.log(reqBody);
@@ -118,6 +139,10 @@ export class ElectricSec extends Component {
                     showModal={this.state.showModal}
 
                     AddRent={this.AddRent}
+
+                    discriptionInfo={this.discriptionInfo}
+                    dateOneInfo={this.dateOneInfo}
+                    dateTowInfo={this.dateTowInfo}
 
                 />
             </>
