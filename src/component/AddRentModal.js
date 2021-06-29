@@ -20,7 +20,7 @@ export class AddRentModal extends Component {
                 <Modal size="lg"
                     aria-labelledby="contained-modal-title-vcenter"
                     centered show={this.props.showModal} onHide={() => { this.props.handleModalClose() }} >
-                    <Modal.Header closeButton>Rent Car</Modal.Header>
+                    <Modal.Header >Rent Car</Modal.Header>
 
                     {
                         !isAuthenticated && (
@@ -44,7 +44,7 @@ export class AddRentModal extends Component {
                                     Add
                                 </Button> */}
 
-                               
+
 
 
 
@@ -61,15 +61,19 @@ export class AddRentModal extends Component {
                                     </Form.Group>
 
                                     <Form.Group className="mb-3" controlId="formBasicEmail" >
-                                        <Form.Label>Date 1</Form.Label>
-                                        <input type="date" id="birthday" name="birthday" onChange={(e) => this.props.dateOneInfo(e.target.value)} ></input>
-                                        {/* <Form.Control type="text" required placeholder="Enter book" onChange={(e) => this.props.updateBookName(e.target.value)} /> */}
-                                    </Form.Group>
+                                        <span>
+                                            <Form.Label>Rental Date : </Form.Label>
+                                            <input required type="date" id="Date" name="Date" onChange={(e) => this.props.dateOneInfo(e.target.value)} ></input>
+                                            {/* <Form.Control type="text" required placeholder="Enter book" onChange={(e) => this.props.updateBookName(e.target.value)} /> */}
+                                        </span>
+                                        {/* </Form.Group> */}
 
-                                    <Form.Group className="mb-3" controlId="formBasicEmail" >
-                                        <Form.Label>Date 2</Form.Label>
-                                        <input type="date" id="birthday" name="birthday" onChange={(e) => this.props.dateTowInfo(e.target.value)} ></input>
-                                        {/* <Form.Control type="text" required placeholder="Enter book" onChange={(e) => this.props.updateBookName(e.target.value)} /> */}
+                                        {/* <Form.Group className="mb-3" controlId="formBasicEmail" > */}
+                                        <span style={{float:'right'}}>
+                                            <Form.Label>Return Date : </Form.Label>
+                                            <input required type="date" id="Date" name="Date" onChange={(e) => this.props.dateTowInfo(e.target.value)} ></input>
+                                            {/* <Form.Control type="text" required placeholder="Enter book" onChange={(e) => this.props.updateBookName(e.target.value)} /> */}
+                                        </span>
                                     </Form.Group>
 
                                     <Button variant="success" type="submit">

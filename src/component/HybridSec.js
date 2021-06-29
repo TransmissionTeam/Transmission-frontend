@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios';
 
 import { withAuth0 } from "@auth0/auth0-react";
+import AddRentModal from './AddRentModal'
 
 import './css/ElectricSec.css'
 
@@ -9,12 +10,10 @@ import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row'
-import AddRentModal from './AddRentModal'
 import ListGroup from 'react-bootstrap/ListGroup'
 import ListGroupItem from 'react-bootstrap/ListGroupItem'
 
-
-export class ElectricSec extends Component {
+export class HybridSec extends Component {
 
     constructor(props) {
         super(props);
@@ -65,12 +64,12 @@ export class ElectricSec extends Component {
         this.setState({
             showModal: !this.state.showModal,
 
-            idcarAdd: this.props.electricCars[index].idcar,
-            nameAdd: this.props.electricCars[index].name,
-            typeAdd: this.props.electricCars[index].type,
-            companyAdd: this.props.electricCars[index].company,
-            colorAdd: this.props.electricCars[index].color,
-            img_urlAdd: this.props.electricCars[index].img_url,
+            idcarAdd: this.props.haybridCars[index].idcar,
+            nameAdd: this.props.haybridCars[index].name,
+            typeAdd: this.props.haybridCars[index].type,
+            companyAdd: this.props.haybridCars[index].company,
+            colorAdd: this.props.haybridCars[index].color,
+            img_urlAdd: this.props.haybridCars[index].img_url,
         })
 
         // console.log(this.state.typeAdd);
@@ -107,17 +106,16 @@ export class ElectricSec extends Component {
     }
 
     render() {
-        // console.log(this.props.electricCars);
         return (
             <>
                 <Container className="ElectricSec">
-                    <h2 class="secCarh2">
-                        Electric Cars for Rent
-                    </h2>
+                        <h2 class="secCarh2">
+                            Hybrid Cars for Rent
+                        </h2>
                     <Row>
 
                         {
-                            this.props.electricCars.map((value, index) => {
+                            this.props.haybridCars.map((value, index) => {
                                 return (
                                     <Card style={{ width: '18rem' }}>
                                         <Card.Img variant="top" src={value.img_url} alt={value.name} style={{ width: '100%', height: '150px' }} />
@@ -129,7 +127,7 @@ export class ElectricSec extends Component {
                                             <ListGroupItem>Company : {value.company}</ListGroupItem>
                                             <ListGroupItem>Color : {value.color}</ListGroupItem>
                                         </ListGroup>
-                                        <Card.Body style={{ textAlign: 'center' }}>
+                                        <Card.Body style={{ textAlign:'center' }}> 
                                             <Button variant="dark" onClick={() => { this.handleModal(index) }}  >Rent Now</Button>
                                         </Card.Body>
                                     </Card>
@@ -156,4 +154,4 @@ export class ElectricSec extends Component {
     }
 }
 
-export default withAuth0(ElectricSec);
+export default withAuth0(HybridSec)

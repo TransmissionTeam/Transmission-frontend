@@ -13,11 +13,16 @@ import Home from './component/Home';
 import AboutUs from './component/AboutUs';
 import Electric from './component/Electric';
 
+
+
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
+
+import Hybrid from './component/Hybrid';
+import CarDesign from './component/CarDesign';
 
 
 export class App extends Component {
@@ -59,7 +64,7 @@ export class App extends Component {
         return number.type === "Electric";
       });
       let haybridCar = response.data.filter((number) => {
-        return number.type === "Haybrid";
+        return number.type === "Hybrid";
       });
 
       this.setState({
@@ -103,13 +108,13 @@ export class App extends Component {
 
             </Route >
 
-            <Route exact path="/">
+            {/* <Route exact path="/">
 
               isAuthenticated && (
 
               )
 
-            </Route >
+            </Route > */}
 
             <Route exact path="/Electric">
 
@@ -117,60 +122,32 @@ export class App extends Component {
 
                 electricCars={this.state.electricCars}
                 userEmail={this.state.userEmail}
-                userName={this.state.userName}
+              // userName={this.state.userName}
 
               />
-              {/* <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
+            </Route >
 
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
+            <Route exact path="/Hybrid">
 
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
+              <Hybrid
 
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
+                haybridCars={this.state.haybridCars}
+                userEmail={this.state.userEmail}
 
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br> */}
+              />
 
             </Route >
 
             <Route exact path="/aboutus">
 
               <AboutUs />
+
+            </Route >
+
+
+            <Route exact path="/Rent">
+
+              <CarDesign />
 
             </Route >
 

@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
-import CarouselsCar from './CarouselsCar'
+import CarDesignElectric from './CarDesignElectric'
+// import CarouselsCar from './CarouselsCar'
 import ElectricSec from './ElectricSec'
 
 export class Electric extends Component {
     render() {
         // console.log(this.props.carsInfo);
-        console.log(this.props.userName);
+        // console.log(this.props.userName);
         return (
             <div>
-                <CarouselsCar />
+                {/* <CarouselsCar /> */}
+                <CarDesignElectric />
                 <ElectricSec
 
                     electricCars={this.props.electricCars}
