@@ -27,6 +27,8 @@ export class ElectricSec extends Component {
             companyAdd: '',
             colorAdd: '',
             img_urlAdd: '',
+
+
         }
     }
 
@@ -67,6 +69,8 @@ export class ElectricSec extends Component {
             company: this.state.companyAdd,
             color: this.state.colorAdd,
             img_url: this.state.img_urlAdd,
+            des:'desTest'
+
 
         }
         console.log(reqBody);
