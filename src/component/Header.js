@@ -1,14 +1,37 @@
 import React, { Component } from 'react'
 
+import { withAuth0 } from "@auth0/auth0-react";
+// import { useAuth0 } from "@auth0/auth0-react";
+
+import LoginButton from './LoginButton'
+
+
 import Navbar from 'react-bootstrap/Navbar'
 import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
-import Image from 'react-bootstrap/Image'
+// import Image from 'react-bootstrap/Image'
+import LogoutButton from './LogoutButton';
+import User from './User';
 
 
 export class Header extends Component {
+
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //         userName: this.props.auth0.user.name,
+    //         userEmail: this.props.auth0.user.email,
+    //         userPicture: this.props.auth0.user.picture
+    //     }
+    // }
+
     render() {
+
+
+        const { isAuthenticated } = this.props.auth0;
+        // const { loginWithRedirect } = useAuth0();
+
         return (
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className="py-4" fixed="top" style={{ zIndex: '10' }}>
                 <Container>
@@ -22,17 +45,37 @@ export class Header extends Component {
                                 <NavDropdown.Divider />
                                 <NavDropdown.Item href="/Hybrid">Hybrid Car</NavDropdown.Item>
                             </NavDropdown>
-                            <Nav.Link href="/Rent">Car Rent</Nav.Link>
+
+                            {
+                                isAuthenticated && (
+                                    <Nav.Link href="/Rent">Car Rent</Nav.Link>
+                                )
+                            }
+
                             <Nav.Link href="/aboutus">About Us</Nav.Link>
                         </Nav>
-                        <Nav>
-                            <Nav.Link href="#">Log In</Nav.Link>
-                        </Nav>
-                        <Nav>
-                            <Nav.Link href="#">Log Out</Nav.Link>
-                            <Nav.Link >Yousef Abu-Jalboush</Nav.Link>
-                            <Image src="https://via.placeholder.com/1000x1000/fff" roundedCircle style={{ width: '42px', height: '42px' }} />
-                        </Nav>
+                        {
+                            !isAuthenticated && (
+                                <Nav>
+                                    <LoginButton />
+                                </Nav>
+                            )
+                        }
+
+                        {
+                            isAuthenticated && (
+                                <Nav>
+                                    <LogoutButton />
+                                    <User
+
+                                        userEmailInfo={this.props.userEmailInfo}
+
+                                    />
+                                </Nav>
+                            )
+                        }
+
+
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
@@ -40,4 +83,4 @@ export class Header extends Component {
     }
 }
 
-export default Header
+export default withAuth0(Header);
