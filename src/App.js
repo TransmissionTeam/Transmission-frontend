@@ -27,6 +27,9 @@ export class App extends Component {
     this.state = {
 
       userEmail: '',
+      userName: '',
+      userPicture: '',
+
 
       carsInfo: [],
       carsInfoExisting: false,
@@ -36,15 +39,19 @@ export class App extends Component {
   };
 
 
-  userEmailInfo = (userEmail) => {
-    this.setState({ userEmail });
+  userEmailInfo = (userEmail, userName, userPicture) => {
+    this.setState({
+      userEmail: userEmail,
+      userName: userName,
+      userPicture: userPicture,
+    });
     // console.log('userEmail:',this.state.userEmail);
-}
+  }
 
 
-  getCarsInfo = () => {
+
+  componentDidMount = () => {
     // console.log(process.env.REACT_APP_URL);
-
     axios.get(`${process.env.REACT_APP_URL}/cars`).then(response => {
       // console.log(response.data);
 
@@ -69,14 +76,12 @@ export class App extends Component {
       }
     );
     // console.log(this.state.carsInfo);
-  }
+  };
 
 
   render() {
 
-    if (!this.state.carsInfoExisting) {
-      this.getCarsInfo();
-    }
+
 
 
     return (
@@ -84,10 +89,10 @@ export class App extends Component {
       <>
 
         <Router>
-          <Header 
-          
-          userEmailInfo={this.userEmailInfo}
-          
+          <Header
+
+            userEmailInfo={this.userEmailInfo}
+
           />
 
           <Switch>
@@ -112,6 +117,7 @@ export class App extends Component {
 
                 electricCars={this.state.electricCars}
                 userEmail={this.state.userEmail}
+                userName={this.state.userName}
 
               />
               {/* <br></br>
