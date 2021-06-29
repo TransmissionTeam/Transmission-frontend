@@ -66,7 +66,11 @@ export class Header extends Component {
                             isAuthenticated && (
                                 <Nav>
                                     <LogoutButton />
-                                    <User />
+                                    <User
+
+                                        userEmailInfo={this.props.userEmailInfo}
+
+                                    />
                                 </Nav>
                             )
                         }

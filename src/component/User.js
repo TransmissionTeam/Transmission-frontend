@@ -12,11 +12,26 @@ export class User extends Component {
         this.state = {
             userName: this.props.auth0.user.name,
             userEmail: this.props.auth0.user.email,
-            userPicture: this.props.auth0.user.picture
+            userPicture: this.props.auth0.user.picture,
+
+            userEmailDefined:false,
         }
     }
 
+    
+
     render() {
+
+        if (!this.state.userEmailDefined) {
+            this.props.userEmailInfo(this.state.userEmail);
+            this.setState({
+
+                userEmailDefined:!this.state.userEmailDefined,
+
+            })
+        }
+        
+
         return (
             <>
                 <Nav.Link >{this.state.userName}</Nav.Link>

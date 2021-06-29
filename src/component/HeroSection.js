@@ -23,7 +23,7 @@ export class HeroSection extends Component {
                         buttonStyle='btn--outline'
                         buttonSize='btn--large'
                     >
-                        Electric Car
+
                     </Button>
                     <Button
                         href="/Hybrid"
@@ -32,9 +32,9 @@ export class HeroSection extends Component {
                         variant="secondary"
                         buttonStyle='btn--primary'
                         buttonSize='btn--large'
-                        onClick={console.log('hey')}
+                        // onClick={console.log('hey')}
                     >
-                        Hybrid Car
+
                     </Button>
                 </div>
             </div>
