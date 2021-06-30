@@ -152,7 +152,8 @@ export class Rent extends Component {
                                 <div class="container">
                                     <div class="image">
                                         <img src={this.props.userPicture} alt={this.props.userName} />
-                                                                            <div class="author-content">
+                                    </div>
+                                    <div class="author-content">
                                         <h4>{this.props.userName}</h4>
                                     </div>
                                     <nav class="main-nav" role="navigation">
@@ -160,8 +161,6 @@ export class Rent extends Component {
                                             <li> {this.props.userEmail}</li>
                                         </ul>
                                     </nav>
-                                    </div>
-
                                 </div>
                             </div>
                         </div>
