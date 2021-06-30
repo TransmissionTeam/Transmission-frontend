@@ -28,10 +28,12 @@ export class ElectricSec extends Component {
             colorAdd: '',
             img_urlAdd: '',
 
-            discriptionAdd:'',
-            dateOneAdd:'',
-            dateTowAdd:'',
+            discriptionAdd: '',
+            dateOneAdd: '',
+            dateTowAdd: '',
 
+            userEmailTrue: false,
+            moreThreeCarRent:false,
         }
     }
 
@@ -64,10 +66,10 @@ export class ElectricSec extends Component {
             showModal: !this.state.showModal,
 
             idcarAdd: this.props.electricCars[index].idcar,
-            nameAdd: this.props.electricCars[index].name ,
+            nameAdd: this.props.electricCars[index].name,
             typeAdd: this.props.electricCars[index].type,
             companyAdd: this.props.electricCars[index].company,
-            colorAdd:this.props.electricCars[index].color,
+            colorAdd: this.props.electricCars[index].color,
             img_urlAdd: this.props.electricCars[index].img_url,
         })
 
@@ -89,9 +91,9 @@ export class ElectricSec extends Component {
             company: this.state.companyAdd,
             color: this.state.colorAdd,
             img_url: this.state.img_urlAdd,
-            discription:this.state.discriptionAdd,
-            rentalDate:this.state.dateOneAdd,
-            returnDate:this.state.dateTowAdd,
+            discription: this.state.discriptionAdd,
+            rentalDate: this.state.dateOneAdd,
+            returnDate: this.state.dateTowAdd,
 
         }
         console.log(reqBody);
@@ -104,10 +106,42 @@ export class ElectricSec extends Component {
         this.handleModalClose();
     }
 
+    // ************************************* Start Get *************************************
+    getUserRent = () => {
+        axios.get(`${process.env.REACT_APP_URL}/car?email=${this.props.userEmail}`).then(response => {
 
-    
+            console.log(response);
+            // this.setState({
+                // cars: response.data.cars,
+                // userEmailTrue: true
+
+            // })
+
+            if (response.data.cars.length >= 3) {
+                console.log(response.data.cars.length);
+                this.setState({
+                    moreThreeCarRent: true
+                })
+            }
+            // console.log(response.data.cars.length);
+            // console.log(response.data);
+        }).catch(
+            error => {
+                alert(error.message);
+            }
+        );
+    }
+    // ************************************* End Get *************************************
+
 
     render() {
+
+        if (!(this.props.userEmail === '') && !(this.state.userEmailTrue)) {
+
+            // console.log(this.props.userEmail);
+            this.getUserRent();
+
+        }
         // console.log(this.props.electricCars);
         return (
             <>
@@ -147,10 +181,12 @@ export class ElectricSec extends Component {
                     dateOneInfo={this.dateOneInfo}
                     dateTowInfo={this.dateTowInfo}
 
+                    moreThreeCarRent={this.state.moreThreeCarRent}
+
                 />
             </>
         )
     }
 }
 
-export default  withAuth0(ElectricSec);
+export default withAuth0(ElectricSec);

@@ -5,7 +5,7 @@ import ElectricSec from './ElectricSec'
 export class Electric extends Component {
     render() {
         // console.log(this.props.carsInfo);
-        console.log(this.props.userName);
+        // console.log(this.props.userName);
         return (
             <div>
                 <CarouselsCar />
