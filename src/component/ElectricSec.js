@@ -13,6 +13,11 @@ import AddRentModal from './AddRentModal'
 import ListGroup from 'react-bootstrap/ListGroup'
 import ListGroupItem from 'react-bootstrap/ListGroupItem'
 
+import Alert from 'react-bootstrap/Alert'
+
+import moment from 'moment';
+
+moment().format();
 
 export class ElectricSec extends Component {
 
@@ -34,6 +39,14 @@ export class ElectricSec extends Component {
             dateOneAdd: '',
             dateTowAdd: '',
 
+
+            userEmailTrue: false,
+            moreThreeCarRent: false,
+
+            userCarsRent: '',
+
+
+            ifCarExist: false,
         }
     }
 
@@ -82,38 +95,126 @@ export class ElectricSec extends Component {
 
     AddRent = (e) => {
         e.preventDefault()
+        // replaceAll('-', '')
 
-        const reqBody = {
-            email: this.props.userEmail,
-            idcar: this.state.idcarAdd,
-            name: this.state.nameAdd,
-            type: this.state.typeAdd,
-            company: this.state.companyAdd,
-            color: this.state.colorAdd,
-            img_url: this.state.img_urlAdd,
-            discription: this.state.discriptionAdd,
-            rentalDate: this.state.dateOneAdd,
-            returnDate: this.state.dateTowAdd,
+        // const dateNow = moment().format("YYYYMMDD");
+
+        let rentalD = this.state.dateOneAdd.replaceAll('-', '');
+        // let returnD = this.state.dateTowAdd.replaceAll('-', '') ;
+
+        let rentalOld;
+        let returnOld;
+
+        let idCar = this.state.idcarAdd;
+        // console.log(rentalD);
+        // console.log(returnD);
+        // console.log(idCar);
+
+        let ifCarExistTow = false;
+
+        for (let i = 0; i < this.state.userCarsRent.length; i++) {
+
+            if (this.state.userCarsRent[i].idcar === idCar) {
+
+                rentalOld = this.state.userCarsRent[i].rentalDate.replaceAll('-', '');
+                returnOld = this.state.userCarsRent[i].returnDate.replaceAll('-', '');
+                // console.log(rentalOld);
+                if ((Number(rentalOld) <= Number(rentalD)) && (Number(returnOld) >= Number(rentalD))) {
+                    // alert('The car is not available now.');
+                    ifCarExistTow = true;
+                    this.setState({
+                        ifCarExist: !this.state.ifCarExist,
+                    })
+                }
+            }
 
         }
-        console.log(reqBody);
-        axios.post(`${process.env.REACT_APP_URL}/car`, reqBody).then(response => {
-            // alert("Doneeeeeeeeeee");
-        }).catch(error =>
-            alert(error.message)
-        )
+
+        if (!ifCarExistTow) {
+
+            const reqBody = {
+                email: this.props.userEmail,
+                idcar: this.state.idcarAdd,
+                name: this.state.nameAdd,
+                type: this.state.typeAdd,
+                company: this.state.companyAdd,
+                color: this.state.colorAdd,
+                img_url: this.state.img_urlAdd,
+                discription: this.state.discriptionAdd,
+                rentalDate: this.state.dateOneAdd,
+                returnDate: this.state.dateTowAdd,
+
+            }
+            console.log(reqBody);
+            axios.post(`${process.env.REACT_APP_URL}/car`, reqBody).then(response => {
+                // alert("Doneeeeeeeeeee");
+            }).catch(error =>
+                alert(error.message)
+            )
+
+        }
+
+
 
         this.handleModalClose();
     }
 
+    // ************************************* Start Get *************************************
+    getUserRent = () => {
+        axios.get(`${process.env.REACT_APP_URL}/car?email=${this.props.userEmail}`).then(response => {
+
+            // console.log(response);
+            this.setState({
+                userCarsRent: response.data.cars,
+                userEmailTrue: true
+
+            })
+
+            if (response.data.cars.length >= 3) {
+                // console.log(response.data.cars.length);
+                this.setState({
+                    moreThreeCarRent: true,
+                })
+            }
+            // console.log(response.data.cars.length);
+            // console.log(response.data);
+        }).catch(
+            error => {
+                alert(error.message);
+            }
+        );
+    }
+    // ************************************* End Get *************************************
+
+
     render() {
+
+        if (!(this.props.userEmail === '') && !(this.state.userEmailTrue)) {
+
+            // console.log(this.props.userEmail);
+            this.getUserRent();
+
+        }
         // console.log(this.props.electricCars);
         return (
             <>
+
                 <Container className="ElectricSec">
                     <h2 class="secCarh2">
                         Electric Cars for Rent
                     </h2>
+                    {
+                        this.state.ifCarExist && (
+                            <Alert variant="danger">
+                                <Alert.Heading>Rent Car</Alert.Heading>
+                                <p style={{fontSize:'25px' , color:'black'}}>
+                                    The car is not available now.
+                                </p>
+                                <hr />
+                            </Alert>
+                        )
+                    }
+
                     <Row>
 
                         {
@@ -149,6 +250,8 @@ export class ElectricSec extends Component {
                     discriptionInfo={this.discriptionInfo}
                     dateOneInfo={this.dateOneInfo}
                     dateTowInfo={this.dateTowInfo}
+
+                    moreThreeCarRent={this.state.moreThreeCarRent}
 
                 />
             </>
