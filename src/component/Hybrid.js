@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import CarDesign from './CarDesign'
 
-// import CarouselsCarHybrid from './CarouselsCarHybrid'
 import HybridSec from './HybridSec'
 
 export class Hybrid extends Component {
@@ -9,7 +8,6 @@ export class Hybrid extends Component {
 
         return (
             <div>
-                {/* <CarouselsCarHybrid /> */}
                 <CarDesign />
                 <HybridSec
 

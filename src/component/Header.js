@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 
 import { withAuth0 } from "@auth0/auth0-react";
-// import { useAuth0 } from "@auth0/auth0-react";
 
 import LoginButton from './LoginButton'
 
@@ -10,27 +9,18 @@ import Navbar from 'react-bootstrap/Navbar'
 import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
-// import Image from 'react-bootstrap/Image'
 import LogoutButton from './LogoutButton';
 import User from './User';
 
 
 export class Header extends Component {
 
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         userName: this.props.auth0.user.name,
-    //         userEmail: this.props.auth0.user.email,
-    //         userPicture: this.props.auth0.user.picture
-    //     }
-    // }
+
 
     render() {
 
 
         const { isAuthenticated } = this.props.auth0;
-        // const { loginWithRedirect } = useAuth0();
 
         return (
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className="py-4" fixed="top" style={{ zIndex: '10' }}>

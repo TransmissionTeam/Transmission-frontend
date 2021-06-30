@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { withAuth0 } from "@auth0/auth0-react";
 
-// import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal'
 
 import Form from 'react-bootstrap/Form'
+
+import Alert from 'react-bootstrap/Alert'
 
 
 export class AddRentModal extends Component {
@@ -53,6 +54,30 @@ export class AddRentModal extends Component {
 
                             <Modal.Body>
 
+                                {
+                                    this.props.ifCarExist && (
+                                        <Alert variant="danger">
+                                            <Alert.Heading>Rent Car</Alert.Heading>
+                                            <p style={{ fontSize: '25px', color: 'black' }}>
+                                                The car is not available now.
+                                            </p>
+                                            <hr />
+                                        </Alert>
+                                    )
+                                }
+
+                                {
+                                    this.props.carRentDoneAdd && (
+                                        <Alert variant="success">
+                                            <Alert.Heading>Rent Car</Alert.Heading>
+                                            <p style={{ fontSize: '25px', color: 'black' }}>
+                                                Done Add Rent Car {this.props.carRentName}  , check Rent Page
+                                            </p>
+                                            <hr />
+                                        </Alert>
+                                    )
+                                }
+
                                 <Form onSubmit={(e) => this.props.AddRent(e)}>
 
                                     <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -66,25 +91,21 @@ export class AddRentModal extends Component {
                                     </Form.Group>
 
                                     <Form.Group className="mb-3" controlId="formBasicEmail" >
-                                      
-                                        <span>
-                                            <Form.Label>Rental Date : </Form.Label>
-                                            <input required type="date" id="Date" name="Date" onChange={(e) => this.props.dateOneInfo(e.target.value)} ></input>
-                                            {/* <Form.Control type="text" required placeholder="Enter book" onChange={(e) => this.props.updateBookName(e.target.value)} /> */}
-                                        </span>
-                                        {/* </Form.Group> */}
 
-                                        {/* <Form.Group className="mb-3" controlId="formBasicEmail" > */}
-                                        <span style={{float:'right'}}>
-                                            <Form.Label>Return Date : </Form.Label>
+                                        <span>
+                                            <Form.Label>Rental Date  </Form.Label>
+                                            <input required type="date" id="Date" name="Date" onChange={(e) => this.props.dateOneInfo(e.target.value)} ></input>
+                                        </span>
+
+                                        <span style={{ float: 'right' }}>
+                                            <Form.Label>Return Date  </Form.Label>
                                             <input required type="date" id="Date" name="Date" onChange={(e) => this.props.dateTowInfo(e.target.value)} ></input>
-                                            {/* <Form.Control type="text" required placeholder="Enter book" onChange={(e) => this.props.updateBookName(e.target.value)} /> */}
                                         </span>
 
                                     </Form.Group>
 
                                     <Button variant="success" type="submit">
-                                        Add
+                                        Add Rent
                                     </Button>
                                 </Form>
 
@@ -94,46 +115,6 @@ export class AddRentModal extends Component {
 
                         )
                     }
-
-
-                    {/* {
-                    isAuthenticated && (
-
-                        <Modal.Body>
-
-                            <Form onSubmit={(e) => this.props.AddRent(e)}>
-
-                                <Form.Group className="mb-3" controlId="formBasicEmail">
-                                    <Form.Label>Write a Discription</Form.Label>
-                                    <Form.Control
-                                        as="textarea" required
-                                        placeholder="Write a discription here"
-                                        style={{ height: '100px' }}
-                                        onChange={(e) => this.props.discriptionInfo(e.target.value)}
-                                    />
-                                </Form.Group>
-
-                                <Form.Group className="mb-3" controlId="formBasicEmail" >
-                                    <Form.Label>Date 1</Form.Label>
-                                    <input type="date" id="birthday" name="birthday" onChange={(e) => this.props.dateOneInfo(e.target.value)} ></input>
-                                </Form.Group>
-
-                                <Form.Group className="mb-3" controlId="formBasicEmail" >
-                                    <Form.Label>Date 2</Form.Label>
-                                    <input type="date" id="birthday" name="birthday" onChange={(e) => this.props.dateTowInfo(e.target.value)} ></input>
-                                </Form.Group>
-
-                                <Button variant="success" type="submit">
-                                    Add
-                                </Button>
-                            </Form>
-
-
-                        </Modal.Body>
-
-                    )
-                } */}
-
 
                     <Modal.Footer>
                         <Button variant="danger" onClick={() => { this.props.handleModalClose() }}>

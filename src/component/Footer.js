@@ -17,14 +17,12 @@ export class Footer extends Component {
             <div className="main-footer">
                 <div className="container">
                     <div className="row">
-                        {/* Column1 */}
                         <div className="col-5">
                             <h2>About Us !?</h2>
                             <h5 className="list-unstyled">
                                 A site specialized in renting electric and hybrid cars and displaying information about them. We always strive to serve you in the best possible way.
                             </h5>
                         </div>
-                        {/* Column2 */}
                         <div className="col-3">
                             <h4>Services</h4>
                             <ui className="list-unstyled">
@@ -39,7 +37,6 @@ export class Footer extends Component {
                                 <li><Nav.Link className="servicesFooter" href="/aboutus">About Us</Nav.Link></li>
                             </ui>
                         </div>
-                        {/* Column3 */}
                         <div className="col-4">
                             <h4>Social Media</h4>
                             <ui className="list-unstyled">
