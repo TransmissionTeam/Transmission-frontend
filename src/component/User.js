@@ -17,10 +17,7 @@ export class User extends Component {
         }
     }
 
-
-
-    render() {
-
+    componentWillMount = () => {
         if (!this.state.userEmailDefined) {
 
             this.props.userEmailInfo(this.state.userEmail, this.state.userName, this.state.userPicture);
@@ -32,6 +29,12 @@ export class User extends Component {
 
             })
         }
+    }
+
+    render() {
+
+
+
 
 
         return (

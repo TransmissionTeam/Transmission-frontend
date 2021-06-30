@@ -96,13 +96,16 @@ export class ElectricSec extends Component {
         }
         console.log(reqBody);
         axios.post(`${process.env.REACT_APP_URL}/car`, reqBody).then(response => {
-            alert("Doneeeeeeeeeee");
+            // alert("Doneeeeeeeeeee");
         }).catch(error =>
             alert(error.message)
         )
 
         this.handleModalClose();
     }
+
+
+    
 
     render() {
         // console.log(this.props.electricCars);

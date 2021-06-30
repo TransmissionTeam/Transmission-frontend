@@ -1,4 +1,14 @@
 
+.discription{
+    font-size: 16px !important;
+    text-align: justify;
+}
+
+#alertRent{
+    width: 100%;
+    margin: 250px;
+}
+
 #wraper {
     /* background: url(https://th.bing.com/th/id/Re8d02acdc1be7bdf917395dc3fb0fb1f?rik=F6DB0PiReNS%2bww&pid=ImgRaw) no-repeat center center fixed; */
     -webkit-background-size: cover;
@@ -13,12 +23,14 @@
 /* Basic */
 
 .mainDiv {
-    overflow-x: hidden; 
+    /* overflow-x: hidden;  */
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     background: url(../img/page-bg.jpg) no-repeat center center fixed;
     margin-bottom: -24px;
+    background-size: cover;
+    height: 750px;
     
 }
 
@@ -141,7 +153,7 @@ html {
   -webkit-overflow-scrolling: touch;
   background-color: #a43f49;
   box-sizing: border-box;
-  height: 100vh;  
+  height: 60vh;  
   max-height: 100vh !important;
   max-width: 80vw !important;
   min-width: 45px !important;
@@ -173,10 +185,10 @@ html {
     right: 10%;
     left: 35%;
     position: relative;
-    min-height: 100vh;
+    min-height: 40vh;
     padding-bottom: 80px;
     border-bottom: 3px solid rgba(250, 250, 250, 0.25);
-    display: flex;
+    /* display: flex; */
    
 }
 
@@ -209,7 +221,7 @@ html {
     color: #fff;
 }
 
-.mainDiv button {
+/* .mainDiv button {
     display: inline-block;
     padding: 10px 20px;
     background-color: #fff;
@@ -222,85 +234,17 @@ html {
     border: none;
     outline: none;
     cursor: pointer;
-}
+} */
 
-.mainDiv button:hover {
+/* .mainDiv button:hover {
     outline: none;
     background-color: #a43f49;
     color: #fff;
-}
-
-
-/* Left & Right Post */
-
-
-
-/* Services */
-
-
-
-/* My Work */
-
-
-
-/* Contact Me */
-
-
-/* @media screen and (max-width: 1680px) {
-    .men {
-        left: 5%;
-    }
-
-    .section {
-        color: #fff;
-        width: 65%;
-        right: 5%;
-        left: 30%;
-    }
-}
-
-@media screen and (max-width: 1680px) and (min-width: 846px) { 
-    .men .social-network ul li a {
-        width: 36px;
-        height: 36px;
-        line-height: 36px;
-    }
-
-    .men .social-network ul li {
-        margin: 0;
-    }
-
-    .men .image {
-        margin-top: 60px;
-    }
-}
-
-@media screen and (max-width: 1280px) {
-    .men {
-        left: 0%;
-    }
-
-    .right-image-post h4,
-    .left-image-post h4 {
-        margin-top: 0px;
-    }
-
-    .right-image-post p,
-    .left-image-post p {
-        margin-top: 15px;
-    }
-
-    .right-image-post .white-button,
-    .left-image-post .white-button {
-        margin-top: 25px;
-    }
-
-}
-
-.men .con {
-    padding-left: 0;
-    padding-right: 0;
 } */
+
+.mainDiv button{
+    margin-left: 5px;
+}
 
 *****************************************************************
 
@@ -316,7 +260,8 @@ html {
     border-radius: 10px;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
     overflow: hidden;
-    width: 300px;
+    width: 350px;
+    /* height: 540px; */
     margin-top: 40px;
     
     
@@ -385,7 +330,7 @@ html {
   }
   .h6{
       color: rgb(0, 0, 0);
-      font-size: 15px;
+      font-size: 14px;
       width: 240px;
   }
  
