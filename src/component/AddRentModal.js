@@ -78,38 +78,42 @@ export class AddRentModal extends Component {
                                     )
                                 }
 
-                                <Form onSubmit={(e) => this.props.AddRent(e)}>
 
-                                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                                        <Form.Label>Write a Discription</Form.Label>
-                                        <Form.Control
-                                            as="textarea" required
-                                            placeholder="Write a discription here"
-                                            style={{ height: '100px' }}
-                                            onChange={(e) => this.props.discriptionInfo(e.target.value)}
-                                        />
-                                    </Form.Group>
+                                {
+                                    isAuthenticated && (
+                                        <Form onSubmit={(e) => this.props.AddRent(e)}>
 
-                                    <Form.Group className="mb-3" controlId="formBasicEmail" >
+                                            <Form.Group className="mb-3" controlId="formBasicEmail">
+                                                <Form.Label>Write a Discription</Form.Label>
+                                                <Form.Control
+                                                    as="textarea" required
+                                                    placeholder="Write a discription here"
+                                                    style={{ height: '100px' }}
+                                                    onChange={(e) => this.props.discriptionInfo(e.target.value)}
+                                                />
+                                            </Form.Group>
 
-                                        <span>
-                                            <Form.Label>Rental Date  </Form.Label>
-                                            <input required type="date" id="Date" name="Date" onChange={(e) => this.props.dateOneInfo(e.target.value)} ></input>
-                                        </span>
+                                            <Form.Group className="mb-3" controlId="formBasicEmail" >
 
-                                        <span style={{ float: 'right' }}>
-                                            <Form.Label>Return Date  </Form.Label>
-                                            <input required type="date" id="Date" name="Date" onChange={(e) => this.props.dateTowInfo(e.target.value)} ></input>
-                                        </span>
+                                                <span>
+                                                    <Form.Label>Rental Date  </Form.Label>
+                                                    <input required type="date" id="Date" name="Date" onChange={(e) => this.props.dateOneInfo(e.target.value)} ></input>
+                                                </span>
 
-                                    </Form.Group>
+                                                <span style={{ float: 'right' }}>
+                                                    <Form.Label>Return Date  </Form.Label>
+                                                    <input required type="date" id="Date" name="Date" onChange={(e) => this.props.dateTowInfo(e.target.value)} ></input>
+                                                </span>
 
-                                    <Button variant="success" type="submit">
-                                        Add Rent
-                                    </Button>
-                                </Form>
+                                            </Form.Group>
 
+                                            <Button variant="success" type="submit">
+                                                Add Rent
+                                            </Button>
+                                        </Form>
 
+                                    )
+                                }
                             </Modal.Body>
 
 

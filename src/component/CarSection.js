@@ -18,7 +18,7 @@ export class CarSection extends Component {
 
                                 <div class="col-lg-8" >
                                     <div class="full text_align_right r-img">
-                                        <img class="img-responsive" src={car2} alt="#" />
+                                        <img class="img-responsive imgFord" src={car2} alt="#" />
                                     </div>
                                 </div>
 
