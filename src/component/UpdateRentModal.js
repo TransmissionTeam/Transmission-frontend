@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 
-// import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal'
 
@@ -23,7 +22,7 @@ export class UpdateRentModal extends Component {
                             <Form.Group className="mb-3" controlId="formBasicEmail">
                                 <Form.Label>Write a Discription</Form.Label>
                                 <Form.Control
-                                    // value={this.props.discription}
+                                    value={this.props.discription}
                                     as="textarea" required
                                     placeholder="Write a discription here"
                                     style={{ height: '100px' }}
@@ -32,17 +31,19 @@ export class UpdateRentModal extends Component {
                             </Form.Group>
 
                             <Form.Group className="mb-3" controlId="formBasicEmail" >
-                                <Form.Label>Date 1</Form.Label>
-                                <input  
-                                // value={this.props.rentalDate}
-                                type="date" id="birthday" name="birthday" onChange={(e) => this.props.updaterentalDateUpdate(e.target.value)} ></input>
-                            </Form.Group>
+                                <span>
+                                    <Form.Label>Rental Date  </Form.Label>
+                                    <input
+                                        value={this.props.rentalDate}
+                                        type="date" id="birthday" name="birthday" onChange={(e) => this.props.updaterentalDateUpdate(e.target.value)} ></input>
+                                </span>
 
-                            <Form.Group className="mb-3" controlId="formBasicEmail" >
-                                <Form.Label>Date 2</Form.Label>
-                                <input 
-                                // value={this.props.returnDate}
-                                type="date" id="birthday" name="birthday" onChange={(e) => this.props.updatereturnDateUpdate(e.target.value)} ></input>
+                                <span style={{ float: 'right' }}>
+                                    <Form.Label>Return Date  </Form.Label>
+                                    <input
+                                        value={this.props.returnDate}
+                                        type="date" id="birthday" name="birthday" onChange={(e) => this.props.updatereturnDateUpdate(e.target.value)} ></input>
+                                </span>
                             </Form.Group>
 
                             <Button variant="success" type="submit">

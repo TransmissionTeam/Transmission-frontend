@@ -32,7 +32,6 @@ export class HeroSection extends Component {
                         variant="secondary"
                         buttonStyle='btn--primary'
                         buttonSize='btn--large'
-                    // onClick={console.log('hey')}
                     >
                         Hybrid
                     </Button>

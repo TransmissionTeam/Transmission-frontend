@@ -23,8 +23,6 @@ import {
 } from "react-router-dom";
 
 import Hybrid from './component/Hybrid';
-import CarDesign from './component/CarDesign';
-
 
 export class App extends Component {
 
@@ -51,15 +49,12 @@ export class App extends Component {
       userName: userName,
       userPicture: userPicture,
     });
-    // console.log('userEmail:',this.state.userEmail);
   }
 
 
 
   componentDidMount = () => {
-    // console.log(process.env.REACT_APP_URL);
     axios.get(`${process.env.REACT_APP_URL}/cars`).then(response => {
-      // console.log(response.data);
 
       let electricCar = response.data.filter((number) => {
         return number.type === "Electric";
@@ -74,14 +69,11 @@ export class App extends Component {
         electricCars: electricCar,
         haybridCars: haybridCar,
       })
-      // console.log(electricCar);
-      // console.log(this.state.electricCars);
     }).catch(
       error => {
         alert(error.message);
       }
     );
-    // console.log(this.state.carsInfo);
   };
 
 
@@ -109,21 +101,12 @@ export class App extends Component {
 
             </Route >
 
-            {/* <Route exact path="/">
-
-              isAuthenticated && (
-
-              )
-
-            </Route > */}
-
             <Route exact path="/Electric">
 
               <Electric
 
                 electricCars={this.state.electricCars}
                 userEmail={this.state.userEmail}
-              // userName={this.state.userName}
 
               />
             </Route >
@@ -148,15 +131,15 @@ export class App extends Component {
 
             <Route exact path="/Rent">
 
-            isAuthenticated && (
+              isAuthenticated && (
 
               <Rent
-                 userEmail={this.state.userEmail}
-                 userName={this.state.userName}
-                 userPicture={this.state.userPicture}
-           
+                userEmail={this.state.userEmail}
+                userName={this.state.userName}
+                userPicture={this.state.userPicture}
+
               />
-)
+              )
 
 
             </Route >

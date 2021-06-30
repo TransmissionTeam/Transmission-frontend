@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
 import './css/rent.css'
-// import User from './User';
-// import { withAuth0 } from "@auth0/auth0-react";
 import axios from 'axios'
-// import './css/bootstrap.css'
 import Button from 'react-bootstrap/Button'
 import Alert from 'react-bootstrap/Alert'
 import UpdateRentModal from './UpdateRentModal';
@@ -27,10 +24,6 @@ export class Rent extends Component {
             returnDate: '',
 
 
-            discriptionUpdate: '',
-            rentalDateUpdate: '',
-            returnDateUpdate: '',
-
             showUpdateForm: false,
 
             userHaveRentCar: false,
@@ -41,7 +34,6 @@ export class Rent extends Component {
     getUserRent = () => {
         axios.get(`${process.env.REACT_APP_URL}/car?email=${this.props.userEmail}`).then(response => {
 
-            // console.log(response);
             this.setState({
                 cars: response.data.cars,
                 userEmailTrue: true
@@ -53,8 +45,6 @@ export class Rent extends Component {
                     userHaveRentCar: true
                 })
             }
-            // console.log(response.data.cars.length);
-            // console.log(response.data);
         }).catch(
             error => {
                 alert(error.message);
@@ -69,13 +59,10 @@ export class Rent extends Component {
 
     deleteRentcar = (index) => {
 
-        // console.log(index);
         axios.delete(`${process.env.REACT_APP_URL}/car/${index}?email=${this.props.userEmail}`).then(response => {
-            // alert("Delete Doneeeeeeeeeeeeee");
             this.setState({
                 cars: response.data.cars,
             });
-            // console.log(this.state.booksData);
         }).catch(error =>
             alert(error.message)
         )
@@ -85,12 +72,11 @@ export class Rent extends Component {
 
     // ************************************* Start Put *************************************
 
-    updatediscriptionUpdate = (Update) => this.setState({ discriptionUpdate: Update });
-    updaterentalDateUpdate = (Update) => this.setState({ rentalDateUpdate: Update });
-    updatereturnDateUpdate = (Update) => this.setState({ returnDateUpdate: Update });
+    updatediscriptionUpdate = (Update) => this.setState({ discription: Update });
+    updaterentalDateUpdate = (Update) => this.setState({ rentalDate: Update });
+    updatereturnDateUpdate = (Update) => this.setState({ returnDate: Update });
 
     UpdateRent = (carsObject, idx) => {
-        // console.log(carsObject);
         this.setState({
 
             idcar: carsObject.idcar,
@@ -123,18 +109,16 @@ export class Rent extends Component {
             company: this.state.company,
             color: this.state.color,
             img_url: this.state.img_url,
-            discription: this.state.discriptionUpdate,
-            rentalDate: this.state.rentalDateUpdate,
-            returnDate: this.state.returnDateUpdate,
+            discription: this.state.discription,
+            rentalDate: this.state.rentalDate,
+            returnDate: this.state.returnDate,
 
         }
-        // console.log(reqBody);
 
         axios.put(`${process.env.REACT_APP_URL}/car/${this.state.carIndex}`, reqBody).then(response => {
             this.setState({
                 cars: response.data.cars
             })
-            // alert("Update Doneeeeeeeeeeeeee");
         }).catch(error =>
             alert(error.message)
         )
@@ -152,7 +136,6 @@ export class Rent extends Component {
 
         if (!(this.props.userEmail === '') && !(this.state.userEmailTrue)) {
 
-            // console.log(this.props.userEmail);
             this.getUserRent();
 
         }

@@ -254,7 +254,7 @@ html {
     justify-content: space-evenly;
     flex-wrap: wrap;
   }
-  .card {
+  .mainDiv .card {
     margin: 10px;
     background-color: #fff;
     border-radius: 10px;
@@ -266,14 +266,14 @@ html {
     
     
   }
-  .card-header img {
+  .mainDiv  .card-header img {
     width: 100%;
     height: 200px;
     object-fit:cover;
     padding: 0px ! important; 
 
   }
-  .card-body {
+  .mainDiv  .card-body {
     display: flex;
     flex-direction: column;
     justify-content: center;
