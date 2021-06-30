@@ -51,7 +51,7 @@ export class CarSection extends Component {
 
                                 <div class="col-lg-8">
                                     <div class="full margin_top_50_rs">
-                                        <img class="img-responsive" src={car} alt="#" />
+                                        <img class="img-responsive imgFord" src={car} alt="#" />
                                     </div>
                                 </div>
                             </div>

@@ -10,6 +10,8 @@ import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row'
 import AddRentModal from './AddRentModal'
+import ListGroup from 'react-bootstrap/ListGroup'
+import ListGroupItem from 'react-bootstrap/ListGroupItem'
 
 import Alert from 'react-bootstrap/Alert'
 
@@ -37,10 +39,12 @@ export class ElectricSec extends Component {
             dateOneAdd: '',
             dateTowAdd: '',
 
+
             userEmailTrue: false,
             moreThreeCarRent: false,
 
             userCarsRent: '',
+
 
             ifCarExist: false,
         }
@@ -196,7 +200,7 @@ export class ElectricSec extends Component {
             <>
 
                 <Container className="ElectricSec">
-                    <h2>
+                    <h2 class="secCarh2">
                         Electric Cars for Rent
                     </h2>
                     {
@@ -217,13 +221,17 @@ export class ElectricSec extends Component {
                             this.props.electricCars.map((value, index) => {
                                 return (
                                     <Card style={{ width: '18rem' }}>
-                                        <Card.Img variant="top" src={value.img_url} alt={value.name} />
+                                        <Card.Img variant="top" src={value.img_url} alt={value.name} style={{ width: '100%', height: '150px' }} />
                                         <Card.Body>
-                                            <Card.Title>Name : {value.name}</Card.Title>
-                                            <Card.Text>Type : {value.type}</Card.Text>
-                                            <Card.Text>Company : {value.company}</Card.Text>
-                                            <Card.Text>Color : {value.color}</Card.Text>
-                                            <Button variant="primary" onClick={() => { this.handleModal(index) }}>Go somewhere</Button>
+                                            <Card.Title>{value.name}</Card.Title>
+                                        </Card.Body>
+                                        <ListGroup className="list-group-flush">
+                                            <ListGroupItem>Type : {value.type}</ListGroupItem>
+                                            <ListGroupItem>Company : {value.company}</ListGroupItem>
+                                            <ListGroupItem>Color : {value.color}</ListGroupItem>
+                                        </ListGroup>
+                                        <Card.Body style={{ textAlign: 'center' }}>
+                                            <Button variant="dark" onClick={() => { this.handleModal(index) }}  >Rent Now</Button>
                                         </Card.Body>
                                     </Card>
                                 )

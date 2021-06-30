@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import { withAuth0 } from "@auth0/auth0-react";
+
 import "./css/Footer.css";
 import Nav from 'react-bootstrap/Nav'
 
@@ -8,6 +10,9 @@ import { AiFillLinkedin } from "react-icons/ai";
 
 export class Footer extends Component {
     render() {
+
+        const { isAuthenticated } = this.props.auth0;
+
         return (
             <div className="main-footer">
                 <div className="container">
@@ -26,7 +31,11 @@ export class Footer extends Component {
                                 <li><Nav.Link className="servicesFooter" href="/">Home</Nav.Link></li>
                                 <li><Nav.Link className="servicesFooter" href="/Electric">Electric Car</Nav.Link></li>
                                 <li><Nav.Link className="servicesFooter" href="/Hybrid">Hybrid Car</Nav.Link></li>
-                                <li><Nav.Link className="servicesFooter" href="/Rent">Car Rent</Nav.Link></li>
+                                {
+                                    isAuthenticated && (
+                                        <li><Nav.Link className="servicesFooter" href="/Rent">Car Rent</Nav.Link></li>
+                                    )
+                                }
                                 <li><Nav.Link className="servicesFooter" href="/aboutus">About Us</Nav.Link></li>
                             </ui>
                         </div>
@@ -51,4 +60,4 @@ export class Footer extends Component {
     }
 }
 
-export default Footer
+export default withAuth0(Footer)

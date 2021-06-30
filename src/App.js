@@ -14,11 +14,16 @@ import AboutUs from './component/AboutUs';
 import Electric from './component/Electric';
 import Rent from './component/Rent';
 
+
+
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
+
+import Hybrid from './component/Hybrid';
+import CarDesign from './component/CarDesign';
 
 
 export class App extends Component {
@@ -60,7 +65,7 @@ export class App extends Component {
         return number.type === "Electric";
       });
       let haybridCar = response.data.filter((number) => {
-        return number.type === "Haybrid";
+        return number.type === "Hybrid";
       });
 
       this.setState({
@@ -104,13 +109,13 @@ export class App extends Component {
 
             </Route >
 
-            <Route exact path="/">
+            {/* <Route exact path="/">
 
               isAuthenticated && (
 
               )
 
-            </Route >
+            </Route > */}
 
             <Route exact path="/Electric">
 
@@ -118,10 +123,19 @@ export class App extends Component {
 
                 electricCars={this.state.electricCars}
                 userEmail={this.state.userEmail}
-                userName={this.state.userName}
+              // userName={this.state.userName}
 
               />
-    
+            </Route >
+
+            <Route exact path="/Hybrid">
+
+              <Hybrid
+
+                haybridCars={this.state.haybridCars}
+                userEmail={this.state.userEmail}
+
+              />
 
             </Route >
 
@@ -133,6 +147,7 @@ export class App extends Component {
 
 
             <Route exact path="/Rent">
+
             isAuthenticated && (
 
               <Rent
@@ -142,6 +157,7 @@ export class App extends Component {
            
               />
 )
+
 
             </Route >
 
